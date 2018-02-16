@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>BBEditDocumentType</key>
+    <string>CodelessLanguageModule</string>
+    <key>BBLMLanguageCode</key>
+    <string>DCKR</string>
+    <key>BBLMLanguageDisplayName</key>
+    <string>Docker</string>
+    <key>BBLMFileNamesToMatch</key>
+    <array>
+      <string>Dockerfile</string>
+      <string>Dockerfile.*</string>
+    </array>
+    <key>BBLMColorsSyntax</key>
+    <true/>
+    <key>BBLMScansFunctions</key>
+    <true/>
+    <key>BBLMSupportsTextCompletion</key>
+    <true/>
+    <key>BBLMIsCaseSensitive</key>
+    <true/>
+    <key>BBLMKeywordList</key>
+    <array>
+      <string>ADD</string>
+      <string>ARG</string>
+      <string>CMD</string>
+      <string>COPY</string>
+      <string>ENTRYPOINT</string>
+      <string>ENV</string>
+      <string>EXPOSE</string>
+      <string>FROM</string>
+      <string>MAINTAINER</string>
+      <string>RUN</string>
+      <string>VOLUME</string>
+      <string>WORKDIR</string>
+    </array>
+    <key>BBLMPredefinedNameList</key>
+    <array>
+      <string>apk</string>
+      <string>chmod</string>
+      <string>chown</string>
+      <string>curl</string>
+      <string>echo</string>
+      <string>git</string>
+      <string>mkdir</string>
+      <string>pip</string>
+      <string>pip3</string>
+      <string>python</string>
+      <string>python3</string>
+      <string>rm</string>
+      <string>unzip</string>
+      <string>wget</string>
+      <string>yum</string>
+    </array>
+    <key>Language Features</key>
+    <dict>
+      <key>Open Line Comments</key>
+      <string>#</string>
+      <key>Identifier and Keyword Character Class</key>
+      <string>a-zA-Z0-9_</string>
+      <key>Open Strings 1</key>
+      <string>"</string>
+      <key>Close Strings 1</key>
+      <string>"</string>
+      <key>Open Strings 2</key>
+      <string>'</string>
+      <key>Close Strings 2</key>
+      <string>'</string>
+      <key>Escape Char in Strings 1</key>
+      <string>\</string>
+      <key>End-of-line Ends Strings 1</key>
+      <true/>
+      <key>Function Pattern</key>
+      <string><![CDATA[
+        (?x:
+                    (?P<leadspace>^[ \t]*)         (?# space \t to avoid catching extra returns...)
+                    (?P<function>
+                        (static\W*)?
+                        (\w*?\W*)                  (?# could be def, or could be some declared return type)
+                        (?P<function_name>
+                            [a-zA-Z0-9_]+
+                        )
+                        \(.*?\)\s?\{?               (?# Brace may be on same line)
+                        (\r(?P=leadspace)\{)?       (?# ... or on separate line)
+                        (?s:.+?)                    (?# body function...)
+                        (\r(?P=leadspace)\})        (?# For ease of writing assume function end brace always horz aligned to start of function)
+                    )
+                )
+        ]]>
+      </string>
+      <key>Open Statement Blocks</key>
+      <string>{</string>
+      <key>Close Statement Blocks</key>
+      <string>}</string>
+    </dict>
+  </dict>
+</plist>
