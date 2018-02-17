@@ -74,20 +74,13 @@
       <true/>
       <key>Function Pattern</key>
       <string><![CDATA[
-        (?x:
-                    (?P<leadspace>^[ \t]*)         (?# space \t to avoid catching extra returns...)
-                    (?P<function>
-                        (static\W*)?
-                        (\w*?\W*)                  (?# could be def, or could be some declared return type)
-                        (?P<function_name>
-                            [a-zA-Z0-9_]+
-                        )
-                        \(.*?\)\s?\{?               (?# Brace may be on same line)
-                        (\r(?P=leadspace)\{)?       (?# ... or on separate line)
-                        (?s:.+?)                    (?# body function...)
-                        (\r(?P=leadspace)\})        (?# For ease of writing assume function end brace always horz aligned to start of function)
-                    )
-                )
+(?x:
+    (?P<leadspace>^\s*)
+    (?P<function>
+        [^#]?RUN\s+(?P<function_name>\S+)
+        (?:(?!RUN\s+)(?:.+)+(?:\R))+
+    )
+)
         ]]>
       </string>
       <key>Open Statement Blocks</key>
