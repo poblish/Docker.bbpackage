@@ -31,8 +31,14 @@
       <string>ENV</string>
       <string>EXPOSE</string>
       <string>FROM</string>
+      <string>HEALTHCHECK</string>
+      <string>LABEL</string>
       <string>MAINTAINER</string>
+      <string>ONBUILD</string>
       <string>RUN</string>
+      <string>SHELL</string>
+      <string>STOPSIGNAL</string>
+      <string>USER</string>
       <string>VOLUME</string>
       <string>WORKDIR</string>
     </array>
@@ -50,6 +56,7 @@
       <string>python</string>
       <string>python3</string>
       <string>rm</string>
+      <string>rpm</string>
       <string>unzip</string>
       <string>wget</string>
       <string>yum</string>
@@ -78,7 +85,7 @@
     (?P<leadspace>^\s*)
     (?P<function>
         [^#]?RUN\s+(?P<function_name>\S+)
-        (?:(?!RUN\s+)(?:.+)+(?:\R))+
+        (?:(?![A-Z]+\s+)(?:.+)+(?:\R))+
     )
 )
         ]]>
