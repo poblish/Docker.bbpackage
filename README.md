@@ -1,6 +1,6 @@
 # Docker.bbpackage
 
-Basic support for [Dockerfiles](https://docs.docker.com/engine/reference/builder/): syntax-hilighting, and collapsing of multi-line `RUN` sequences.
+Basic support for [Dockerfiles](https://docs.docker.com/engine/reference/builder/): syntax highlighting, and collapsing of multi-line `RUN` sequences.
 
 # Installation
 
